@@ -53,3 +53,23 @@ function misha_loadmore_ajax_handler(){
 
 //add_action('wp_ajax_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_{action}
 //add_action('wp_ajax_nopriv_loadmore', 'misha_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
+
+/**
+* Register widget area.
+*
+* @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+*/
+function wireframe_theme_widgets_init() {
+    // register_sidebar 워드프레스 함수를 사용하여 만든 배열에 옵션을 입력한다.
+    register_sidebar( array(
+        'name'        => __( 'Footer Friend Blog Link', 'wireframe-theme' ),
+        'id'            => 'footer-link',
+        'description' => __( 'Add widgets here.', 'wireframe-theme' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s powered-by-wordpress">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+
+add_action( 'widgets_init', 'wireframe_theme_widgets_init' );

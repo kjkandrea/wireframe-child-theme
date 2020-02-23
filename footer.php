@@ -11,6 +11,8 @@
  * @since 1.0.0
  */
 
+ $has_footer_link = is_active_sidebar( 'footer-link' );
+
 ?>
 			<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
@@ -28,11 +30,12 @@
 							<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo bloginfo( 'name' ); ?></a>
 						</p><!-- .footer-copyright -->
 
-						<p class="powered-by-wordpress">
-							<a href="http://lifeoncloud.kr">
-								friend blog : <span>lifeoncloud.kr</span>
-							</a>
-						</p><!-- .powered-by-wordpress -->
+						<?php
+                        if ( $has_footer_link ) {
+                            dynamic_sidebar( 'footer-link' );
+                        }
+                        ?>
+                        <!-- .powered-by-wordpress -->
 
 					</div><!-- .footer-credits -->
 
