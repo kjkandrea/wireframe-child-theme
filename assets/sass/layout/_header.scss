@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+header{
+    .header-inner{
+        padding: 0 65px;    
+    }
+
+    .nav {
+        li > a{
+            @include KRfont;
+            font-weight: 900;
+        }
+        &.nav-spacing-xlarge > li{
+            margin: 0 1.5rem;
+        }
+    }
+}
